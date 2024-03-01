@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input {
+            width: calc(100% - 30px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .password-toggle {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #eee;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function togglePassword() {
+            var passwordInput = document.getElementById("password");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Password Strength Checker</h1>
+    <form action="/check_password" method="post">
+        <label for="password">Enter password:</label>
+        <input type="password" id="password" name="password" required>
+        <span class="password-toggle" onclick="togglePassword()">Show Password</span>
+        <button type="submit">Check Password</button>
+    </form>
+</body>
+</html>
